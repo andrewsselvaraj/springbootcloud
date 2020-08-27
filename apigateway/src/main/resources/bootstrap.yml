@@ -1,0 +1,34 @@
+zuul:
+  routes:
+    login:
+      path: /proxyserver/loginproxy/**
+      url: http://104.251.217.248:8080/examples/
+      stripPrefix: true
+    
+    actuator:
+      path: /proxyserver/monitoring/**
+      url: http://104.251.217.248:8080/actuator/info
+      stripPrefix: true
+     
+    actuatorpath:
+      path: /proxyserver/monitoringpath/**
+      url: http://104.251.217.248:8080/apigateway-0.0.1-SNAPSHOT/actuator/info
+      stripPrefix: true
+      
+    hystrix:
+      path: /proxyserver/hystrix/**
+      url: http://104.251.217.248:8080/apigateway-0.0.1-SNAPSHOT/hystrix
+      stripPrefix: true
+      
+    hystrixpath:
+      path: /proxyserver/hystrixpath/**
+      url: http://104.251.217.248:8080/hystrix/
+      stripPrefix: true
+      
+
+
+    account:
+      path: /**
+      url: http://localhost:8091
+      stripPrefix: false
+      sensitiveHeaders:
